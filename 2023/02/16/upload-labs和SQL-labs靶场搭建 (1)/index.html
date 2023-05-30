@@ -1,0 +1,171 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>zhang | zhang</title><meta name="author" content="迷糊"><meta name="copyright" content="迷糊"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="@[TOC] 环境配置（phpstudy）搭建靶场首先配置web环境，我们下载phpstudy下载链接：https:&#x2F;&#x2F;www.xp.cn&#x2F;download.html安装教程:  https:&#x2F;&#x2F;www.xp.cn&#x2F;wenda&#x2F;389.html  注意：在安装时，安装路径里要干净，没有其他文件 upload-labs文件获取项目网址github： https:&#x2F;&#x2F;github.com&#x2F;c0ny1&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="zhang">
+<meta property="og:url" content="http://example.com/2023/02/16/upload-labs%E5%92%8CSQL-labs%E9%9D%B6%E5%9C%BA%E6%90%AD%E5%BB%BA%20(1)/index.html">
+<meta property="og:site_name" content="zhang">
+<meta property="og:description" content="@[TOC] 环境配置（phpstudy）搭建靶场首先配置web环境，我们下载phpstudy下载链接：https:&#x2F;&#x2F;www.xp.cn&#x2F;download.html安装教程:  https:&#x2F;&#x2F;www.xp.cn&#x2F;wenda&#x2F;389.html  注意：在安装时，安装路径里要干净，没有其他文件 upload-labs文件获取项目网址github： https:&#x2F;&#x2F;github.com&#x2F;c0ny1&#x2F;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/avatar.jpg">
+<meta property="article:published_time" content="2023-02-16T13:09:10.669Z">
+<meta property="article:modified_time" content="2023-02-16T13:08:49.701Z">
+<meta property="article:author" content="迷糊">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/avatar.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2023/02/16/upload-labs%E5%92%8CSQL-labs%E9%9D%B6%E5%9C%BA%E6%90%AD%E5%BB%BA%20(1)/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'zhang',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-02-16 21:08:49'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = url => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      link.onload = () => resolve()
+      link.onerror = () => reject()
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/default_top_img.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="zhang"><span class="site-name">zhang</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">无题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-02-16T13:09:10.669Z" title="发表于 2023-02-16 21:09:10">2023-02-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-02-16T13:08:49.701Z" title="更新于 2023-02-16 21:08:49">2023-02-16</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>@[TOC]</p>
+<h1 id="环境配置（phpstudy）"><a href="#环境配置（phpstudy）" class="headerlink" title="环境配置（phpstudy）"></a>环境配置（phpstudy）</h1><p>搭建靶场首先配置web环境，我们下载phpstudy<br><img src="https://img-blog.csdnimg.cn/5a0e29ec186f4b0b9aa97559d5604b27.png" alt="小皮安装界面"><br>下载链接：<a href="">https://www.xp.cn/download.html</a><br>安装教程:  <a href="">https://www.xp.cn/wenda/389.html</a></p>
+<p> <strong>注意</strong>：在安装时，安装路径里要干净，没有其他文件</p>
+<h1 id="upload-labs文件获取"><a href="#upload-labs文件获取" class="headerlink" title="upload-labs文件获取"></a>upload-labs文件获取</h1><p>项目网址<br>github： <a href="">https://github.com/c0ny1/upload-labs</a><br><img src="https://img-blog.csdnimg.cn/ef45b8a5e4f044ceb885959eadf53d8c.png" alt="在这里插入图片描述"><br>这里咱们直接Download ZIP下载就可以了</p>
+<h3 id="解压zip"><a href="#解压zip" class="headerlink" title="解压zip"></a>解压zip</h3><p><img src="https://img-blog.csdnimg.cn/c3451e3bbe654145b07c7392ad290247.png" alt="位置"><br>把文件解压到phpstudy的WWW文件夹里，改名为upload-labs<br><img src="https://img-blog.csdnimg.cn/cf8ba5d96d764596a2873f225d2ed767.png" alt="在这里插入图片描述"><br>打开小皮的几个套件，搜索<a href="">http://127.0.0.1/upload-labs/</a>出现如下界面就搭建成功了<br><img src="https://img-blog.csdnimg.cn/f86903b993f94352be4635a2a16d47cb.png" alt="在这里插入图片描述"></p>
+<h1 id="SQL-labs靶场搭建"><a href="#SQL-labs靶场搭建" class="headerlink" title="SQL-labs靶场搭建"></a>SQL-labs靶场搭建</h1><p>有了上面upload-labs的搭建经验我们直接进入项目地址<br><a href="">https://github.com/Audi-1/sqli-labs/</a>下载项目zip压缩包</p>
+<p>解压到phpstudy的WWW文件夹里<br><img src="https://img-blog.csdnimg.cn/9a660f022d7e498eb6a9690cc4787dcc.png" alt="在这里插入图片描述"></p>
+<h2 id="创建一个站点"><a href="#创建一个站点" class="headerlink" title="创建一个站点"></a>创建一个站点</h2><p>注意：</p>
+<p>域名随意设置，但是必填且唯一(即便不用)</p>
+<p>如果不想通过域名访问就要保证端口号唯一</p>
+<p>php版本建议5.4（看别人的，版本7.一下应该就行）</p>
+<p>如果想通过域名访问就要勾选同步hosts(杀软可能会告警，无视即可)<br><img src="https://img-blog.csdnimg.cn/0b351eb956724004a4f796459af084ec.png" alt="在这里插入图片描述"><br>这里我们还要更改一个文件db-creds.inc<br>$dbpass默认是没有的，我们把它修改为”root”，和phpstudy的默认root密码一样<br><img src="https://img-blog.csdnimg.cn/1112b8a515644a158f59f614c0360f42.png" alt="在这里插入图片描述"></p>
+<h3 id="db-creds-inc-的修改"><a href="#db-creds-inc-的修改" class="headerlink" title="db-creds.inc 的修改"></a>db-creds.inc 的修改</h3><p>可以用记事本打开进行修改<br>但要注意修改权限，否则修改后不能保存<br><img src="https://img-blog.csdnimg.cn/f0292b4795d848c08f9ea370289ec8cb.png" alt="在这里插入图片描述"><br>在编辑里勾选 <strong>修改</strong> 并确定就可以了<br><img src="https://img-blog.csdnimg.cn/5c68488f4ff9471baac1f279bee786a6.png" alt="在这里插入图片描述"></p>
+<h4 id="打开sql-labs站点"><a href="#打开sql-labs站点" class="headerlink" title="打开sql-labs站点"></a>打开sql-labs站点</h4><p>浏览器打开 <a href="">http://127.0.0.1/sqli-labs-master/</a><br>出现这个界面就搭建成功了<br>（打开时记得启动phpstudy的套件，要不然打不开..）<br><img src="https://img-blog.csdnimg.cn/eb736eefc9fb4d8f8a133416eced83b9.png" alt="在这里插入图片描述"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">迷糊</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/02/16/upload-labs%E5%92%8CSQL-labs%E9%9D%B6%E5%9C%BA%E6%90%AD%E5%BB%BA%20(1)/">http://example.com/2023/02/16/upload-labs%E5%92%8CSQL-labs%E9%9D%B6%E5%9C%BA%E6%90%AD%E5%BB%BA%20(1)/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">zhang</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/avatar.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/02/13/hello-world/" title="Hello World"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Hello World</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">迷糊</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/fengzi04"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%EF%BC%88phpstudy%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">环境配置（phpstudy）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#upload-labs%E6%96%87%E4%BB%B6%E8%8E%B7%E5%8F%96"><span class="toc-number">2.</span> <span class="toc-text">upload-labs文件获取</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%8E%8Bzip"><span class="toc-number">2.0.1.</span> <span class="toc-text">解压zip</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SQL-labs%E9%9D%B6%E5%9C%BA%E6%90%AD%E5%BB%BA"><span class="toc-number">3.</span> <span class="toc-text">SQL-labs靶场搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AB%99%E7%82%B9"><span class="toc-number">3.1.</span> <span class="toc-text">创建一个站点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#db-creds-inc-%E7%9A%84%E4%BF%AE%E6%94%B9"><span class="toc-number">3.1.1.</span> <span class="toc-text">db-creds.inc 的修改</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%93%E5%BC%80sql-labs%E7%AB%99%E7%82%B9"><span class="toc-number">3.1.1.1.</span> <span class="toc-text">打开sql-labs站点</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/02/16/upload-labs%E5%92%8CSQL-labs%E9%9D%B6%E5%9C%BA%E6%90%AD%E5%BB%BA%20(1)/" title="无题">无题</a><time datetime="2023-02-16T13:09:10.669Z" title="发表于 2023-02-16 21:09:10">2023-02-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/02/13/hello-world/" title="Hello World">Hello World</a><time datetime="2023-02-13T02:06:16.857Z" title="发表于 2023-02-13 10:06:16">2023-02-13</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By 迷糊</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-show-text.min.js" data-mobile="true" data-text="I,LOVE,YOU" data-fontsize="15px" data-random="false" async="async"></script><script src="//code.tidio.co/oef247kaxe2d4hldzewln3fmn0dkymih.js" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
